@@ -1,5 +1,3 @@
-//Aggregate Element 8
-//Syntax,..... (first lab)
 
 function solve (numbers) {
     const sum = (numbers) => {
