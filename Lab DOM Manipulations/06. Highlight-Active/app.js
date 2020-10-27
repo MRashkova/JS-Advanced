@@ -1,19 +1,23 @@
-function deleteByEmail() {
-    let input = document.querySelector('input[name="email"]');
-    let enteredEmail = input.value;
-    //console.log(input.value);
-    let customerEmails = document.querySelectorAll('#customers td:nth-of-type(2)');
-    let isDeleted = false;
-    
-    for (const customerElement of customerEmails) {
-        if (customerElement.textContent === enteredEmail) {
-            customerElement.parentElement.remove();
-            isDeleted = true;
-        }
+function focus() {
+    let mainDiv = document.getElementsByTagName('div')[0];
+
+    Array
+        .from(mainDiv.getElementsByTagName('input')).forEach(e => {
+            e.addEventListener('focus', focus);
+        })
+
+    Array
+        .from(mainDiv.getElementsByTagName('input')).forEach(e => {
+            e.addEventListener('blur', focusLost);
+        })
+
+    function focus(e) {
+        let parent = e.target.parentNode;
+        parent.classList.add('focused');
     }
 
-    if (!isDeleted) {
-        let resultElement = document.getElementById('result');
-        resultElement.textContent = 'Not found.';
+    function focusLost(e) {
+        let parent = e.target.parentNode;
+        parent.classList.remove('focused');
     }
 }
