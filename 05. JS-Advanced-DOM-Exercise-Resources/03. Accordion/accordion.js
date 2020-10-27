@@ -1,3 +1,14 @@
 function toggle() {
-    console.log('TODO:...');
+    let button = document.getElementsByClassName('button')[0];
+
+    let extra = document.getElementById('extra');
+
+    if (button.textContent == 'More') {
+        extra.style.display = 'block';
+        button.textContent = 'Less';
+    } else {
+        button.textContent = 'More';
+        extra.style.display = 'none';
+    }
+    
 }
